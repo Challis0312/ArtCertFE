@@ -1,0 +1,116 @@
+/**************************************************************************************************/
+
+/**
+ * @file        index.css
+ * @description 
+ * 
+ * @enterprise  UNIVERSITY OF MELBOURNE
+ * @author      [Joshua El-Khoury, Chi-Yuan Yang]
+ * @created     11/08/2025
+ * @license     -- tbd
+ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Gantari:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@theme{
+  --font-sans: Gantari, sans-serif;
+  --font-serif: Cormorant, serif;
+
+  --color-link: #4691AE;
+  --color-heading: #3E4358;
+  --color-body-text: #555555;
+
+  --color-button-primary: #515374;
+  --color-button-secondary: #F0F0F2;
+  --color-button-green: #567855;
+  --color-button-red: #BE3236;
+
+  --color-button-primary-hover: #3E4358;
+  --color-button-secondary-hover: #DADADA;
+  --color-button-green-hover: #649D62;
+  --color-button-red-hover: #FFFFFF;
+
+  --color-tag: #F0F0F2;
+}
+
+/* Use this to apply smooth transitions between 2 colors when hovering*/
+.btn-transition {
+  @apply transition-colors duration-300 ease-in-out;
+}
+
+#root {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+:root {
+  font-family: 'Public Sans', Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+  background-color: #FFFFFF;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+}
+
+.input-filter {
+  border-bottom: 1px solid #d1d5db; /* gray-300 */
+  width: 100%;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  text-align: center;
+  font-size: 1.125rem; /* text-lg */
+  font-family: var(--font-sans);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-filter:focus {
+  border-bottom-color: var(--color-button-primary);
+}
