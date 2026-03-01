@@ -134,6 +134,7 @@ const EditArtwork = () => {
       const verificationResponse = await verificationApi.request(artwork.id, requestForm);
       // Mark as pending verification locally so UI hides the request button
       setArtwork(prev => ({ ...prev, verificationPending: true }));
+      console.log("We are here");
       alert(verificationResponse); // should adjust controller to return the full response object instead of just message
     } catch (err) {
       console.log('Error editing artwork ' + err);
