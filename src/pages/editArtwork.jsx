@@ -131,10 +131,11 @@ const EditArtwork = () => {
       const compressedBuf = await gzipWithCompressionStream(file);
       const gzBlob = new Blob([compressedBuf], { type: 'application/gzip' });
       requestForm.append("rawFile", gzBlob, file.name + '.gz');
+      console.log("Before the verification request to backend");
       const verificationResponse = await verificationApi.request(artwork.id, requestForm);
+      console.log("After the verification request to backend");
       // Mark as pending verification locally so UI hides the request button
       setArtwork(prev => ({ ...prev, verificationPending: true }));
-      console.log("We are here");
       alert(verificationResponse); // should adjust controller to return the full response object instead of just message
     } catch (err) {
       console.log('Error editing artwork ' + err);
