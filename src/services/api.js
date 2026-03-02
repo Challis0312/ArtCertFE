@@ -138,6 +138,8 @@ export const verificationApi = {
     })
       .then(r => r.data)
       .catch(function (error) {
+        console.log("This is from api.js, updated");
+        console.log(error);
         if (error.code === 'ECONNABORTED') {
           throw new Error('Upload timeout - file may be too large');
         }
