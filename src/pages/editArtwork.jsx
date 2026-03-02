@@ -131,14 +131,17 @@ const EditArtwork = () => {
       const compressedBuf = await gzipWithCompressionStream(file);
       const gzBlob = new Blob([compressedBuf], { type: 'application/gzip' });
       requestForm.append("rawFile", gzBlob, file.name + '.gz');
-      console.log("Before the verification request to backend");
       const verificationResponse = await verificationApi.request(artwork.id, requestForm);
-      console.log("After the verification request to backend");
-      console.log("Object received below");
-      console.log(verificationResponse);
       // Mark as pending verification locally so UI hides the request button
       setArtwork(prev => ({ ...prev, verificationPending: true }));
-      alert(verificationResponse); // should adjust controller to return the full response object instead of just message
+      let displayMessage = ""
+      if(verificationResponse.verified){
+        displayMessage = "Artwork verified successfully. You may now proceed to the next step.";
+      }
+      else{
+        displayMessage = "We’re unable to verify the artwork based on the information provided.";
+      }
+      alert(displayMessage); // should adjust controller to return the full response object instead of just message
     } catch (err) {
       console.log('Error editing artwork ' + err);
       alert(verificationResponse + " For" + file.name + " Failed to submit verification request from frontend. Please try again."); // TODO: verificationResponse is undefined for DPDD here
