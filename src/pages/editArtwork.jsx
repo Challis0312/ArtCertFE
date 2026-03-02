@@ -144,7 +144,8 @@ const EditArtwork = () => {
       alert(displayMessage); // should adjust controller to return the full response object instead of just message
     } catch (err) {
       console.log('Error editing artwork ' + err);
-      alert(verificationResponse + " For" + file.name + " Failed to submit verification request from frontend. Please try again."); // TODO: verificationResponse is undefined for DPDD here
+      // alert(verificationResponse + " For" + file.name + " Failed to submit verification request from frontend. Please try again."); // TODO: verificationResponse is undefined for DPDD here
+      alert(" For" + file.name + " Failed to submit verification request from frontend. Please try again."); // TODO: verificationResponse is undefined for DPDD here
     } finally {
       setLoading(false);
       navigate('/registry');
