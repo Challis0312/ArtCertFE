@@ -134,6 +134,8 @@ const EditArtwork = () => {
       console.log("Before the verification request to backend");
       const verificationResponse = await verificationApi.request(artwork.id, requestForm);
       console.log("After the verification request to backend");
+      console.log("Object received below");
+      console.log(verificationResponse);
       // Mark as pending verification locally so UI hides the request button
       setArtwork(prev => ({ ...prev, verificationPending: true }));
       alert(verificationResponse); // should adjust controller to return the full response object instead of just message
