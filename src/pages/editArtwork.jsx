@@ -134,6 +134,8 @@ const EditArtwork = () => {
       const verificationResponse = await verificationApi.request(artwork.id, requestForm);
       // Mark as pending verification locally so UI hides the request button
       setArtwork(prev => ({ ...prev, verificationPending: true }));
+      console.log(verificationResponse);
+      console.log(typeof verificationResponse);
       let displayMessage = ""
       if(verificationResponse.verified){
         displayMessage = "Artwork verified successfully. You may now proceed to the next step.";
