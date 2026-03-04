@@ -137,10 +137,8 @@ export const verificationApi = {
     api.post(`/verification/${artworkId}`, payload, {
       timeout: 600000
     })
-      .then(r => console.log(r.data))
+      .then(r => r.data)
       .catch(function (error) {
-        console.log("This is from api.js, updated");
-        console.log(error);
         if (error.code === 'ECONNABORTED') {
           throw new Error('Upload timeout - file may be too large');
         }
@@ -150,9 +148,6 @@ export const verificationApi = {
         if (error.response) {
           // The request was made and the server responded with a status code
           // that falls out of the range of 2xx
-          // console.log(error.response.data);
-          // console.log(error.response.status);
-          // console.log(error.response.headers);
         } else if (error.request) {
           // The request was made but no response was received
           // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
