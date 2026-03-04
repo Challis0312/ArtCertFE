@@ -14,7 +14,8 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:3000",
-  withCredentials: true
+  withCredentials: true,
+  timeout: 600000,
 });
 
 // Request interceptor: attach Authorization if token exists
@@ -136,7 +137,7 @@ export const verificationApi = {
     api.post(`/verification/${artworkId}`, payload, {
       timeout: 600000
     })
-      .then(r => r.data)
+      .then(r => console.log(r.data))
       .catch(function (error) {
         console.log("This is from api.js, updated");
         console.log(error);
@@ -149,9 +150,9 @@ export const verificationApi = {
         if (error.response) {
           // The request was made and the server responded with a status code
           // that falls out of the range of 2xx
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
+          // console.log(error.response.data);
+          // console.log(error.response.status);
+          // console.log(error.response.headers);
         } else if (error.request) {
           // The request was made but no response was received
           // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
