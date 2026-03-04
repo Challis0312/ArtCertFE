@@ -146,7 +146,7 @@ const EditArtwork = () => {
     } catch (err) {
       console.log('Error editing artwork ' + err);
       // alert(verificationResponse + " For" + file.name + " Failed to submit verification request from frontend. Please try again."); // TODO: verificationResponse is undefined for DPDD here
-      alert(" For" + file.name + " Failed to submit verification request from frontend. Please try again."); // TODO: verificationResponse is undefined for DPDD here
+      alert("Failed to submit verification request for " + file.name + ". Please try again."); // TODO: verificationResponse is undefined for DPDD here
     } finally {
       setLoading(false);
       navigate('/registry');
